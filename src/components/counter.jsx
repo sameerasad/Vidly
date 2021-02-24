@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 export default function Counter() {
-    let tags=[{name:"tag1",id:1},{name:"tag2",id:2},{name:"tag3",id:3}]
+    let tags=[]
     
    function renderTags(){
 
@@ -16,9 +16,7 @@ export default function Counter() {
    
     return (
         <div>
-          {
-             renderTags() 
-          }
+          { tags.length===0 && <p>there is no tag</p>}
         </div>
     )
 
