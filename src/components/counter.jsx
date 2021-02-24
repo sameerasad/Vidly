@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-export default function Counter() {
+    const Counter =()=> {
     let tags=[{name:"tag1",id:1},{name:"tag2",id:2},{name:"tag3",id:3}]
     
     
@@ -11,13 +11,14 @@ export default function Counter() {
 
      
    }
-   function getBadgeClasses() {
+   
+   const getBadgeClasses=()=> {
     let classes = "badge m-2 badge-"
     classes += count === 0 ? "danger" : "primary"
     return classes
 }
 
-function renderTags(){
+const renderTags=()=>{
 
     if(tags.length===0)return <p> there is no tags</p>;
     return <ul>{tags.map(tag=><li key={tag.id}>{tag.name}</li>)}</ul>
@@ -25,14 +26,16 @@ function renderTags(){
 
    } 
 
-   function Increament () {
-     return setCount(count++)
+   
+   const Increament= ()=> {
+      setCount(count++)
        
 
        
    }
-   function Decreament () {
-    return setCount(count--)
+   
+   const Decreament =()=> {
+     setCount(count--)
       
 
       
@@ -53,7 +56,7 @@ function renderTags(){
     
     
 }
-
+ export default Counter;
 
 
 
