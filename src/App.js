@@ -1,11 +1,10 @@
-import { Fragment } from "react";
-import Counter from "./components/counter";
+import Movies from "./components/movies";
 
 function App() {
   return (
-    <>
-      <Counter />
-    </>
+    <main className="container">
+      <Movies />
+    </main>
   );
 }
 
