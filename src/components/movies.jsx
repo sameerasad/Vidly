@@ -6,15 +6,20 @@ function Movies() {
    
 
     let [Movies, setMovies] = useState(getMovies);
-    
+      function handleDelete(movie) {
+          console.log(movie)
+          const movies = Movies.filter(m=>m._id!== movie._id)
+          setMovies(movies)           
+      }
 
-      return(<table className="table ">
+      return(<table className="table">
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Genre</th>
                 <th>Stock</th>
                 <th>Rate</th>
+                <th></th>
             </tr>
             
             </thead>
@@ -26,6 +31,7 @@ function Movies() {
                     <td>{movie.genre.name}</td>
                     <td>{movie.numberInStock}</td>
                     <td>{movie.dailyRental}</td>
+                    <td> <button onClick={()=>{handleDelete(movie)}} className="button btn-danger btn-sm " >Delete</button></td>
                 </tr>)}
                 
                 
@@ -33,40 +39,6 @@ function Movies() {
     </table>)
 }
 export default Movies
-
-/*class Movies extends Component {
-    
-        state = {
-            Movies:getMovies()
-          };
-    
-    render() {
-        return (
-        <table className="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Stock</th>
-                <th>Rate</th>
-            </tr>
-            
-            </thead>
-            <tbody>
-                {this.state.Movies.map(movie=>
-                <tr key={movie._id}>
-                    <td>{movie.title}</td>
-                    <td>{movie.genre.name}</td>
-                    <td>{movie.numberInStock}</td>
-                    <td>{movie.dailyRental}</td>
-                </tr>)}
-                
-            </tbody>
-    </table>
-            
-        );
-    }
-}*/
 
 
 
