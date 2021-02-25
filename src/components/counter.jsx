@@ -1,20 +1,21 @@
 import React,{useState} from 'react'
 
-    const Counter =()=> {
+    const Counter =(props)=> {
     let tags=[{name:"tag1",id:1},{name:"tag2",id:2},{name:"tag3",id:3}]
     
     
-    let [count, setCount] = useState(0)
+    let [value, setValue] = useState(props.value)
     
       const formatCount=()=>{
-     return  count===0 ? "Zero":count
+     return  value===0 ? "Zero":value
 
      
    }
+   console.log("props",props)
    
    const getBadgeClasses=()=> {
     let classes = "badge m-2 badge-"
-    classes += count === 0 ? "danger" : "primary"
+    classes += value === 0 ? "danger" : "primary"
     return classes
 }
 
@@ -29,7 +30,7 @@ const renderTags=()=>{
    
    const Increament= (productId)=> {
     console.log(productId)
-      setCount(count++)
+      setValue(value++)
        
 
        
@@ -37,13 +38,14 @@ const renderTags=()=>{
    
    const Decreament =(productId)=> {
      console.log(productId)
-     setCount(count--)
+     setValue(value--)
       
 
       
   }
+  
 
-   
+   console.log(props);
     return (
         <div>
            
