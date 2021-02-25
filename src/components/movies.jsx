@@ -2,9 +2,10 @@ import React,{Component,useState,useEffect} from 'react'
 import {getMovies} from "../services/fakeMovieService"
 
 
-function Movies() {
-   
 
+function Movies() { 
+
+    
     let [Movies, setMovies] = useState(getMovies);
       function handleDelete(movie) {
           console.log(movie)
@@ -12,7 +13,15 @@ function Movies() {
           setMovies(movies)           
       }
 
-      return(<table className="table">
+      if(Movies.length===0)return <p>There are no movies in database</p>
+     
+       const count = Movies.length
+ 
+
+      return(
+      <>
+      <p className="body">There are {count} movies in databse.</p>
+      <table className="table">
         <thead>
             <tr>
                 <th>Title</th>
@@ -36,7 +45,8 @@ function Movies() {
                 
                 
             </tbody>
-    </table>)
+    </table>
+    </>)
 }
 export default Movies
 
