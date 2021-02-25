@@ -27,14 +27,16 @@ const renderTags=()=>{
    } 
 
    
-   const Increament= ()=> {
+   const Increament= (productId)=> {
+    console.log(productId)
       setCount(count++)
        
 
        
    }
    
-   const Decreament =()=> {
+   const Decreament =(productId)=> {
+     console.log(productId)
      setCount(count--)
       
 
@@ -47,8 +49,8 @@ const renderTags=()=>{
            
            
            <span style={{fontSize:20}} className={getBadgeClasses()} > {formatCount()}</span>
-           <button className="btn btn-secondary btn-sm" onClick={()=>{Increament()}} >Increament</button>
-           <button className="btn btn-warning m-2 btn-sm" onClick={()=>{Decreament()}} >Decreament</button>
+           <button className="btn btn-secondary btn-sm" onClick={()=>{Increament({id:1})}} >Increament</button>
+           <button className="btn btn-warning m-2 btn-sm" onClick={()=>{Decreament({id:1})}} >Decreament</button>
            {renderTags()}
         </div>
     )
