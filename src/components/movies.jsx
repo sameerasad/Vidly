@@ -3,21 +3,12 @@ import {getMovies} from "../services/fakeMovieService"
 
 
 function Movies() {
-    const[Movies,setMovies] =useState([])
-    console.log(Movies);
+   
 
-
-    useEffect(() => {
-          function getUsers() {
-          const Result = getMovies()
-          console.log(Result);
-          setMovies(Result);
-        } getUsers();
-        console.log(Result)
+    let [Movies, setMovies] = useState(getMovies);
     
-      }, []);
 
-      return(<table className="table">
+      return(<table className="table ">
         <thead>
             <tr>
                 <th>Title</th>
@@ -28,12 +19,15 @@ function Movies() {
             
             </thead>
             <tbody>
-                { Result.map(Result=>{<tr key={Result._id}>
-                    <td>{Result.title}</td>
-                    <td>{Result.genre.name}</td>
-                    <td>{Result.numberInStock}</td>
-                    <td>{Result.dailyRental}</td>
-                </tr>})}
+                {
+                    Movies.map(movie=>
+                <tr key={movie._id}>
+                    <td>{movie.title}</td>
+                    <td>{movie.genre.name}</td>
+                    <td>{movie.numberInStock}</td>
+                    <td>{movie.dailyRental}</td>
+                </tr>)}
+                
                 
             </tbody>
     </table>)
