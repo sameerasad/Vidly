@@ -6,7 +6,7 @@ const [counters, setCounters] = useState([{id:1,value:1},{id:2,value:2},{id:3,va
 
     return (
         <div>
-          {counters.map(counter=><Counter key={counter.id} value={counter.value} />)}  
+          {counters.map(counter=><Counter key={counter.id} value={counter.value} ><h4>counter no# {counter.id}</h4></Counter>)}  
            
         </div>
     )
