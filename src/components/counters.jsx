@@ -11,8 +11,10 @@ const [counters, setCounters] = useState(
   {id:5,value:5}
 ])
  
-const handleDelete=(counter)=> {
-  console.log("event handler called")
+const handleDelete=(counterId)=> {
+  console.log("event handler called",counterId)
+  const newCounters = counters.filter(m=>m.id!==counterId)
+  return setCounters(newCounters)
  
 }
    
