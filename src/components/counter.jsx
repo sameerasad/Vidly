@@ -47,7 +47,10 @@ const renderTags=()=>{
 
    console.log(props);
     return (
+      
+      
         <div>
+         
            
            <h4>{props.children}</h4>
            <span style={{fontSize:20}} className={getBadgeClasses()} > {formatCount()}</span>
@@ -56,6 +59,7 @@ const renderTags=()=>{
            <button className="btn btn-danger sm m-2"onClick={()=>{props.onDelete(props.id)}} >Delete</button>
            
         </div>
+       
     )
 
     

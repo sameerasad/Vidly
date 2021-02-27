@@ -13,13 +13,23 @@ const [counters, setCounters] = useState(
  
 const handleDelete=(counterId)=> {
   console.log("event handler called",counterId)
-  const newCounters = counters.filter(m=>m.id!==counterId)
+  const newCounters = counters.filter(c=>c.id!==counterId)
   return setCounters(newCounters)
  
 }
    
+const  handleReset=()=> {
+  const reset = counters.map(c=>{
+    c.value=0
+    return c;
+  })
+  return setCounters(reset)
+
+  
+}
    return (
     <div>
+      <button  className="btn btn-primary btn-sm m-2" onClick={()=>{handleReset(counters)}}>Resent</button>
       {counters.map(counter=><Counter key={counter.id} value={counter.value} onDelete={()=>handleDelete(counter.id)} ></Counter>)}  
        
     </div>
