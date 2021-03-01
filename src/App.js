@@ -51,9 +51,9 @@ function App() {
         <Counters
           counters={counters}
           onReset={() => handleReset()}
-          onDelete={() => handleDelete(counters.id)}
-          onIncreament={() => handleIncreament(counters)}
-          onDecreament={() => handleDecreament(counters)}
+          onDelete={() => handleDelete()}
+          onIncreament={() => handleIncreament()}
+          onDecreament={() => handleDecreament()}
         ></Counters>
       </main>
     </>

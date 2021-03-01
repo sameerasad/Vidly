@@ -41,7 +41,7 @@ const renderTags=()=>{
         <div>
          
            
-           <h4>{props.children}</h4>
+        
            <span style={{fontSize:20}} className={getBadgeClasses()} > {formatCount()}</span>
            <button className="btn btn-primary m-2 btn-sm" onClick={()=>{props.onIncreament(props.counter)}} >Increament</button> 
            <button className="btn btn-warning m-2 btn-sm" onClick={()=>{props.onDecreament(props.counter)}} >Decreament</button>
