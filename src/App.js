@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Counters from "./components/counters";
 import Movies from "./components/movies";
 import NavBar from "./components/navBar";
+import CounterContext from "./components/counterContext";
 
 function App() {
   let [counters, setCounters] = useState([
@@ -46,16 +47,12 @@ function App() {
   };
   return (
     <>
-      <NavBar />
-      <main className="container m-4">
-        <Counters
-          counters={counters}
-          onReset={() => handleReset()}
-          onDelete={() => handleDelete()}
-          onIncreament={() => handleIncreament()}
-          onDecreament={() => handleDecreament()}
-        ></Counters>
-      </main>
+      <CounterContext.Provider value={counters}>
+        <NavBar />
+        <main className="container m-4">
+          <Counters></Counters>
+        </main>
+      </CounterContext.Provider>
     </>
   );
 }
