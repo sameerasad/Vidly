@@ -1,7 +1,7 @@
 import React,{Component,useState,useEffect} from 'react'
 import {getMovies} from "../services/fakeMovieService"
 
-
+ 
 
 function Movies() { 
 

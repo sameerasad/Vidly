@@ -6,7 +6,7 @@ import NavBar from "./components/navBar";
 import CounterContext from "./components/counterContext";
 
 function App() {
-  let [counters, setCounters] = useState([
+  let counters = useState([
     { id: 1, value: 1 },
     { id: 2, value: 2 },
     { id: 3, value: 3 },
@@ -14,37 +14,8 @@ function App() {
     { id: 5, value: 5 },
   ]);
 
-  const handleDelete = (counterId) => {
-    console.log("event handler called", counterId);
-    const newCounters = counters.filter((c) => c.id !== counterId);
-    return setCounters(newCounters);
-  };
+  console.log(counters);
 
-  const handleIncreament = (counter) => {
-    counters = [...counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value++;
-
-    setCounters(counters);
-  };
-
-  const handleDecreament = (counter) => {
-    counters = [...counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value--;
-
-    setCounters(counters);
-  };
-
-  const handleReset = () => {
-    const reset = counters.map((c) => {
-      c.value = 0;
-      return c;
-    });
-    return setCounters(reset);
-  };
   return (
     <>
       <CounterContext.Provider value={counters}>
