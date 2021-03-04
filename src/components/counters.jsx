@@ -6,18 +6,19 @@ export default function Counters() {
 
   const counters =  useContext(counterContext)
 
-  const handleReset = () => {
+ const handleReset = () => {
     const reset = counters[0].map((c) => {
       c.value = 0;
       return c;
     });
+    counters[1](reset) 
     
-  };
+  }
 
    return (
     <div>
-      <button  className="btn btn-primary btn-sm m-2" onClick={()=>{handleReset()}}>Reset</button>
-      {counters[0].map(counter=><Counter  key={counter.id} value={counter.value} counter={counter} id={counter.id} ></Counter>)}  
+      <button  className="btn btn-primary btn-sm m-2" onClick={()=>{ handleReset()}}>Reset</button>
+      {counters[0].map(counter=><Counter  key={counter.id} id ={counter.id} value={counter.value} counter={counter} id={counter.id} ></Counter>)}  
        
     </div>
 )
@@ -25,3 +26,4 @@ export default function Counters() {
    
  
     
+  
