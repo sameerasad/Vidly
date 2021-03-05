@@ -48,15 +48,19 @@ const handleDecreament = (counterValue) => {
 return (
       
       
-        <div>
+    <div className="row">
          
+           <div className="col-2"> <span  style={{fontSize:20}} className={getBadgeClasses()} > {formatCount()}</span>
+           </div>
+           <div className="col">
+           <button className="btn btn-primary m-2 btn-sm"  onClick={()=>{handleIncreament(props.counter)}} >Increament</button> 
+           <button className="btn btn-warning m-2 btn-sm" disabled={props.value===0?"disabled":""} onClick={()=>{handleDecreament(props.counter)}} >Decreament</button>
+           <button className="btn btn-danger sm m-2"onClick={()=>handleDelete(props.id)} >Delete</button>
+           </div>
+        
+        
            
         
-           <span style={{fontSize:20}} className={getBadgeClasses()} > {formatCount()}</span>
-           <button className="btn btn-primary m-2 btn-sm" onClick={()=>{handleIncreament(props.counter)}} >Increament</button> 
-           <button className="btn btn-warning m-2 btn-sm" onClick={()=>{handleDecreament(props.counter)}} >Decreament</button>
-           <button className="btn btn-danger sm m-2"onClick={()=>handleDelete(props.id)} >Delete</button>
-           
         </div>
        
     )

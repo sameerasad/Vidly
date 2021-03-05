@@ -16,8 +16,10 @@ export default function Counters() {
   }
 
    return (
-    <div>
+    <div className="col-sm-12">
+     
       <button  className="btn btn-primary btn-sm m-2" onClick={()=>{ handleReset()}}>Reset</button>
+    
       {counters[0].map(counter=><Counter  key={counter.id} id ={counter.id} value={counter.value} counter={counter} id={counter.id} ></Counter>)}  
        
     </div>

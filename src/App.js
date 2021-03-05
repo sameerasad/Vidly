@@ -14,8 +14,6 @@ function App() {
     { id: 5, value: 5 },
   ]);
 
-  console.log(counters);
-
   return (
     <>
       <CounterContext.Provider value={counters}>
