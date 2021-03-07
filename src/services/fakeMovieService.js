@@ -9,6 +9,7 @@ const movies = [
     numberInStock: 9,
     dailyRental: 2.5,
     publishDate: 1 - 3 - 2010,
+    like: true,
   },
   {
     _id: 2,

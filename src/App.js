@@ -20,6 +20,7 @@ function App() {
         <NavBar />
         <main className="container m-4">
           <Counters></Counters>
+          <Movies />
         </main>
       </CounterContext.Provider>
     </>
