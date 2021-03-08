@@ -17,9 +17,7 @@ function App() {
   return (
     <>
       <CounterContext.Provider value={counters}>
-        <NavBar />
         <main className="container m-4">
-          <Counters></Counters>
           <Movies />
         </main>
       </CounterContext.Provider>

@@ -1,6 +1,8 @@
 import React,{Component,useState,useEffect} from 'react'
 import {getMovies} from "../services/fakeMovieService"
 import Likes from "./common/Likes"
+import Pagination from './common/pagination';
+
 
  
 
@@ -8,6 +10,10 @@ function Movies() {
 
     
     let [Movies, setMovies] = useState(getMovies);
+    const [pageSize,setPageSize]=useState(2)
+
+
+    
       function handleDelete(movie) {
           console.log(movie)
           const movies = Movies.filter(m=>m._id!== movie._id)
@@ -27,6 +33,10 @@ function Movies() {
         setMovies(movies)
 
 
+    }
+
+    const handlePageChange=page=>{
+        console.log(page)
     }
 
       return(
@@ -61,6 +71,7 @@ function Movies() {
                 
             </tbody>
     </table>
+    <Pagination itemsCount={Movies.length} pageSize={pageSize} onPageChange={()=>{handlePageChange(1)}} />
     </>)
 }
 export default Movies
