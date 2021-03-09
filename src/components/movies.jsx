@@ -12,6 +12,9 @@ function Movies() {
     let [Movies, setMovies] = useState(getMovies);
     const [pageSize,setPageSize]=useState(2)
 
+    const currentPage = useState(1)
+    console.log(currentPage)
+
 
     
       function handleDelete(movie) {
@@ -36,7 +39,7 @@ function Movies() {
     }
 
     const handlePageChange=page=>{
-        console.log(page)
+        
     }
 
       return(
@@ -71,7 +74,7 @@ function Movies() {
                 
             </tbody>
     </table>
-    <Pagination itemsCount={Movies.length} pageSize={pageSize} onPageChange={()=>{handlePageChange(1)}} />
+    <Pagination itemsCount={Movies.length} pageSize={pageSize} currentPage={currentPage} pageChange={()=>handlePageChange()} />
     </>)
 }
 export default Movies
