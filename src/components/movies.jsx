@@ -2,6 +2,9 @@ import React,{Component,useState,useEffect} from 'react'
 import {getMovies} from "../services/fakeMovieService"
 import Likes from "./common/Likes"
 import Pagination from './common/pagination';
+import counterContext from "./counterContext";
+
+
 
 
  
@@ -38,9 +41,7 @@ function Movies() {
 
     }
 
-    const handlePageChange=page=>{
-        
-    }
+    
 
       return(
       <>
@@ -74,7 +75,9 @@ function Movies() {
                 
             </tbody>
     </table>
-    <Pagination itemsCount={Movies.length} pageSize={pageSize} currentPage={currentPage} pageChange={()=>handlePageChange()} />
+    <counterContext.Provider value={currentPage}>
+    <Pagination itemsCount={Movies.length} pageSize={pageSize} currentPage={currentPage} />
+    </counterContext.Provider>
     </>)
 }
 export default Movies

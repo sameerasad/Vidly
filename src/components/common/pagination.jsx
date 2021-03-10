@@ -1,15 +1,32 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import _ from "lodash" // optimize version of library underscore
+import CounterContext from '../counterContext'
 
 
 function Pagination(props) {
 
-    const {pageSize,itemsCount, currentPage, pageChange } = props
+    const {pageSize,itemsCount,  pageChange } = props
+
+    const currentPage  = useContext(CounterContext)
+
+
+
+
+    console.log(pageSize,itemsCount,currentPage,)
    
 
    
     
+    const handlePageChange=page=>{
+
+        console.log(page)
+        currentPage[1](page)
+
+
         
+
+        
+    }
 
     
 
