@@ -3,6 +3,7 @@ import {getMovies} from "../services/fakeMovieService"
 import Likes from "./common/Likes"
 import Pagination from './common/pagination';
 import counterContext from "./counterContext";
+import  { pagination } from "../components/utills/pagination"
 
 
 
@@ -12,8 +13,8 @@ import counterContext from "./counterContext";
 function Movies() { 
 
     
-    let [Movies, setMovies] = useState(getMovies);
-    const [pageSize,setPageSize]=useState(2)
+    const [allMovies, setMovies] = useState(getMovies);
+    const [pageSize,setPageSize]=useState(4)
 
     const currentPage = useState(1)
     console.log(currentPage)
@@ -22,17 +23,13 @@ function Movies() {
     
       function handleDelete(movie) {
           console.log(movie)
-          const movies = Movies.filter(m=>m._id!== movie._id)
+          const movies = allMovies.filter(m=>m._id!== movie._id)
           setMovies(movies)           
       }
 
-      if(Movies.length===0)return <p>There are no movies in database</p>
-     
-       const count = Movies.length
- 
-   const handleLike=(movie)=>{
+      const handleLike=(movie)=>{
         console.log("clicked" ,movie)
-        const movies =[...Movies]
+        const movies =[...allMovies]
         const index = movies.indexOf(movie)
         movies[index] = {...movies[index]}
         movies[index].like = !movies[index].like 
@@ -41,7 +38,16 @@ function Movies() {
 
     }
 
-    
+
+      if(allMovies.length===0)return <p>There are no movies in database</p>
+
+       Movies = pagination(allMovies,currentPage[0],pageSize)
+
+       console.log(Movies)
+     
+       
+   
+    const count =allMovies.length
 
       return(
       <>
@@ -76,7 +82,7 @@ function Movies() {
             </tbody>
     </table>
     <counterContext.Provider value={currentPage}>
-    <Pagination itemsCount={Movies.length} pageSize={pageSize} currentPage={currentPage} />
+    <Pagination itemsCount={allMovies.length} pageSize={pageSize}  />
     </counterContext.Provider>
     </>)
 }
