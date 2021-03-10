@@ -1,11 +1,13 @@
 import React,{useState,useContext} from 'react'
 import _ from "lodash" // optimize version of library underscore
+import propTypes from "prop-types"
 import CounterContext from '../counterContext'
+
 
 
 function Pagination(props) {
 
-    const {pageSize,itemsCount,  pageChange } = props
+    const {pageSize,itemsCount,  } = props
 
     const currentPage  = useContext(CounterContext)
 
@@ -20,12 +22,7 @@ function Pagination(props) {
     const handlePageChange=page=>{
 
         console.log(page)
-        currentPage[1](page)
-
-
-        
-
-        
+        currentPage[1](page)        
     }
 
     
@@ -61,6 +58,11 @@ function Pagination(props) {
     </nav>    
   
     )}
+
+    Pagination.propTypes={
+        pageSize:propTypes.number.isRequired,
+        itemsCount:propTypes.number.isRequired,
+    }
 
 
 export default Pagination

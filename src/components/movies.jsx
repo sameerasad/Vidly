@@ -82,7 +82,7 @@ function Movies() {
             </tbody>
     </table>
     <counterContext.Provider value={currentPage}>
-    <Pagination itemsCount={allMovies.length} pageSize={pageSize}  />
+    <Pagination itemsCount={allMovies.length} pageSize={pageSize} />
     </counterContext.Provider>
     </>)
 }
