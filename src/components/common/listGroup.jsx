@@ -9,6 +9,14 @@ function ListGroup(props) {
            
        </ul> 
     )
+
+
+}
+
+ListGroup.defaultProps={
+value:'_id',
+textProperty:"name"
+
 }
 
 export default ListGroup

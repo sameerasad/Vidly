@@ -65,7 +65,7 @@ function Movies() {
       return(
       
       <div className="row">
-          <div className="col-3"> <ListGroup items={genres} value="_id" textProperty="name" onItemSelect={()=>handleSelect()} /></div>
+          <div className="col-3"> <ListGroup items={genres}  onItemSelect={()=>handleSelect()} /></div>
           <div className="col"> 
           <p className="body">There are {count} movies in databse.</p>
        <table className="table">
