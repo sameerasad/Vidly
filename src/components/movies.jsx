@@ -1,4 +1,4 @@
-import React,{Component,useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 import {getMovies} from "../services/fakeMovieService"
 import Likes from "./common/Likes"
 import Pagination from './common/pagination';
@@ -65,7 +65,7 @@ function Movies() {
       return(
       
       <div className="row">
-          <div className="col-3"> <ListGroup onItemSelect={handleSelect()} /></div>
+          <div className="col-3"> <ListGroup items={genres} onItemSelect={()=>handleSelect()} /></div>
           <div className="col"> 
           <p className="body">There are {count} movies in databse.</p>
        <table className="table">

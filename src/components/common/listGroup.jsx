@@ -1,10 +1,13 @@
 import React from 'react'
 
-function ListGroup() {
+function ListGroup(props) {
+
+    const {items} = props
     return (
        <ul className="list-group">
-           <li className="list-group-item"> </li>
-       </ul>
+           {items.map(item=><li key={item._id} className="list-group-item">{item.name}</li>)}
+           
+       </ul> 
     )
 }
 
