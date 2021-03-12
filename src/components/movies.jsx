@@ -4,6 +4,8 @@ import Likes from "./common/Likes"
 import Pagination from './common/pagination';
 import counterContext from "./counterContext";
 import  { pagination } from "../components/utills/pagination"
+import ListGroup from "./common/listGroup"
+import {getGenres} from "../services/fakeGenreService"
 
 
 
@@ -13,8 +15,16 @@ import  { pagination } from "../components/utills/pagination"
 function Movies() { 
 
     
-    const [allMovies, setMovies] = useState(getMovies);
+    const [allMovies, setMovies] = useState([]);
     const [pageSize,setPageSize]=useState(4)
+    const [genres,setGenres] =useState([])
+
+    useEffect(()=>{
+      setMovies(getMovies)
+      setGenres(getGenres)
+    },[])
+
+    console.log(genres,allMovies)
 
     const currentPage = useState(1)
     console.log(currentPage)
@@ -34,9 +44,12 @@ function Movies() {
         movies[index] = {...movies[index]}
         movies[index].like = !movies[index].like 
         setMovies(movies)
+  }
 
+  const handleSelect =genre=>{
 
-    }
+    console.log(genre)
+  }
 
 
       if(allMovies.length===0)return <p>There are no movies in database</p>
@@ -50,9 +63,12 @@ function Movies() {
     const count =allMovies.length
 
       return(
-      <>
-      <p className="body">There are {count} movies in databse.</p>
-      <table className="table">
+      
+      <div className="row">
+          <div className="col-3"> <ListGroup onItemSelect={handleSelect()} /></div>
+          <div className="col"> 
+          <p className="body">There are {count} movies in databse.</p>
+       <table className="table">
         <thead>
             <tr>
                 <th>Title</th>
@@ -84,7 +100,9 @@ function Movies() {
     <counterContext.Provider value={currentPage}>
     <Pagination itemsCount={allMovies.length} pageSize={pageSize} />
     </counterContext.Provider>
-    </>)
+    </div>
+    </div>
+)     
 }
 export default Movies
 
