@@ -19,6 +19,7 @@ function App() {
       <CounterContext.Provider value={counters}>
         <main className="container m-4">
           <Movies />
+          <Counters />
         </main>
       </CounterContext.Provider>
     </>
